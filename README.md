@@ -25,9 +25,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/1872ba534d9159e437208c392bade83f "githalytics.com")](http://githalytics.com/project-imas/remail)
-
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/8faa06a5c6882eca24b1c84d096e6724 "githalytics.com")](http://githalytics.com/project-imas/Remail-iPhone)
 
 
 ## reMail copyright references
