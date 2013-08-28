@@ -222,6 +222,11 @@
 		F83C98A41566E0450005B167 /* libThree20UINavigator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A43586911C0D495009A6A60 /* libThree20UINavigator.a */; };
 		F8618DDD10DAE4C600C41188 /* libmailcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8618DDA10DAE4A100C41188 /* libmailcore.a */; };
 		F86BECBB157689050080308C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86BECBA157689050080308C /* CFNetwork.framework */; };
+		FEE0AE8917CE48580024B3C4 /* libSecureFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE0AE8117CE47CD0024B3C4 /* libSecureFoundation.a */; };
+		FEE0AE8D17CE48A90024B3C4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE0AE8C17CE48A90024B3C4 /* Security.framework */; };
+		FEE0AE9017CE49270024B3C4 /* AppPassword.framework in Resources */ = {isa = PBXBuildFile; fileRef = FEE0AE8F17CE49270024B3C4 /* AppPassword.framework */; };
+		FEE0AE9317CE4E0F0024B3C4 /* APViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE0AE9217CE4E0F0024B3C4 /* APViewController.m */; };
+		FEE0AE9717CE62CF0024B3C4 /* AppPassword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE0AE8F17CE49270024B3C4 /* AppPassword.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -399,6 +404,41 @@
 			proxyType = 1;
 			remoteGlobalIDString = F8618B5610DADB5C00C41188;
 			remoteInfo = "MailCore iPhone";
+		};
+		FEE0AE7017CE47C50024B3C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEE0AE6C17CE47C50024B3C4 /* AppPassword.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4819438D16CE96B90016DB79;
+			remoteInfo = AppPassword;
+		};
+		FEE0AE8017CE47CD0024B3C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEE0AE7B17CE47CC0024B3C4 /* SecureFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B89357C162C92F1003750B6;
+			remoteInfo = SecureFoundation;
+		};
+		FEE0AE8217CE47CD0024B3C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEE0AE7B17CE47CC0024B3C4 /* SecureFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3B89358D162C92F1003750B6;
+			remoteInfo = SecureFoundationTests;
+		};
+		FEE0AE8417CE47F90024B3C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEE0AE6C17CE47C50024B3C4 /* AppPassword.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4819438C16CE96B90016DB79;
+			remoteInfo = AppPassword;
+		};
+		FEE0AE8A17CE48760024B3C4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FEE0AE7B17CE47CC0024B3C4 /* SecureFoundation.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B89357B162C92F1003750B6;
+			remoteInfo = SecureFoundation;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -736,6 +776,12 @@
 		F83C989C1566E0040005B167 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		F8618DC810DAE4A100C41188 /* MailCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MailCore.xcodeproj; path = ../mailcore/MailCore.xcodeproj; sourceTree = SOURCE_ROOT; };
 		F86BECBA157689050080308C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		FEE0AE6C17CE47C50024B3C4 /* AppPassword.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AppPassword.xcodeproj; path = "../vendor/app-password/AppPassword.xcodeproj"; sourceTree = "<group>"; };
+		FEE0AE7B17CE47CC0024B3C4 /* SecureFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SecureFoundation.xcodeproj; path = ../vendor/securefoundation/SecureFoundation.xcodeproj; sourceTree = "<group>"; };
+		FEE0AE8C17CE48A90024B3C4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		FEE0AE8F17CE49270024B3C4 /* AppPassword.framework */ = {isa = PBXFileReference; lastKnownFileType = file; name = AppPassword.framework; path = "Build/Products/Debug-iphoneos/AppPassword.framework"; sourceTree = "<group>"; };
+		FEE0AE9117CE4E0F0024B3C4 /* APViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APViewController.h; sourceTree = "<group>"; };
+		FEE0AE9217CE4E0F0024B3C4 /* APViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -743,6 +789,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEE0AE8D17CE48A90024B3C4 /* Security.framework in Frameworks */,
 				F86BECBB157689050080308C /* CFNetwork.framework in Frameworks */,
 				F83C989F1566E0450005B167 /* libThree20Core.a in Frameworks */,
 				F83C98A01566E0450005B167 /* libThree20Network.a in Frameworks */,
@@ -756,9 +803,11 @@
 				F83C98991566DFD40005B167 /* CoreGraphics.framework in Frameworks */,
 				F83C98971566DFCF0005B167 /* MessageUI.framework in Frameworks */,
 				F83C98951566DFC80005B167 /* UIKit.framework in Frameworks */,
+				FEE0AE8917CE48580024B3C4 /* libSecureFoundation.a in Frameworks */,
 				F83C98931566DFC10005B167 /* CoreLocation.framework in Frameworks */,
 				F83C98911566DFBA0005B167 /* StoreKit.framework in Frameworks */,
 				F83C988F1566DFB40005B167 /* QuartzCore.framework in Frameworks */,
+				FEE0AE9717CE62CF0024B3C4 /* AppPassword.framework in Frameworks */,
 				A67025ED1243396D003519CB /* libssl.a in Frameworks */,
 				A67025EE1243396D003519CB /* libsasl2.a in Frameworks */,
 				A67025EF1243396D003519CB /* libcrypto.a in Frameworks */,
@@ -1012,6 +1061,8 @@
 				14F842DE113728830096DE57 /* UpsellViewController.m */,
 				14F842DF113728830096DE57 /* UsageViewController.h */,
 				14F842E0113728830096DE57 /* UsageViewController.m */,
+				FEE0AE9117CE4E0F0024B3C4 /* APViewController.h */,
+				FEE0AE9217CE4E0F0024B3C4 /* APViewController.m */,
 				148110580F410F13000E3CBD /* ReMailAppDelegate.h */,
 				148110590F410F13000E3CBD /* ReMailAppDelegate.m */,
 				140382810F296B8D00531DB7 /* HomeViewController.h */,
@@ -1095,6 +1146,9 @@
 		29B97314FDCFA39411CA2CEA /* NextMailIPhone */ = {
 			isa = PBXGroup;
 			children = (
+				FEE0AE8C17CE48A90024B3C4 /* Security.framework */,
+				FEE0AE7B17CE47CC0024B3C4 /* SecureFoundation.xcodeproj */,
+				FEE0AE6C17CE47C50024B3C4 /* AppPassword.xcodeproj */,
 				F86BECBA157689050080308C /* CFNetwork.framework */,
 				F83C989C1566E0040005B167 /* libiconv.dylib */,
 				F83C989A1566DFDA0005B167 /* Foundation.framework */,
@@ -1174,6 +1228,7 @@
 				288765070DF74369002DB57D /* CoreGraphics.framework */,
 				14E5E17410853B58007C241E /* AddressBook.framework */,
 				14D74A1510AB7DD10019FB1F /* StoreKit.framework */,
+				FEE0AE8F17CE49270024B3C4 /* AppPassword.framework */,
 				200437120F5DFFF9007D450A /* SystemConfiguration.framework */,
 				14DF9DAB105E525000A59D6D /* CoreLocation.framework */,
 				142A6C270FF2C8D800BEF19F /* libiconv.2.dylib */,
@@ -1257,6 +1312,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		FEE0AE6D17CE47C50024B3C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FEE0AE7117CE47C50024B3C4 /* AppPassword.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FEE0AE7C17CE47CC0024B3C4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FEE0AE8117CE47CD0024B3C4 /* libSecureFoundation.a */,
+				FEE0AE8317CE47CD0024B3C4 /* SecureFoundationTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1274,6 +1346,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				FEE0AE8B17CE48760024B3C4 /* PBXTargetDependency */,
+				FEE0AE8517CE47F90024B3C4 /* PBXTargetDependency */,
 				F8618DDC10DAE4B800C41188 /* PBXTargetDependency */,
 				2A43588E11C0D805009A6A60 /* PBXTargetDependency */,
 				2A43589011C0D805009A6A60 /* PBXTargetDependency */,
@@ -1309,8 +1383,16 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = FEE0AE6D17CE47C50024B3C4 /* Products */;
+					ProjectRef = FEE0AE6C17CE47C50024B3C4 /* AppPassword.xcodeproj */;
+				},
+				{
 					ProductGroup = F8618DC910DAE4A100C41188 /* Products */;
 					ProjectRef = F8618DC810DAE4A100C41188 /* MailCore.xcodeproj */;
+				},
+				{
+					ProductGroup = FEE0AE7C17CE47CC0024B3C4 /* Products */;
+					ProjectRef = FEE0AE7B17CE47CC0024B3C4 /* SecureFoundation.xcodeproj */;
 				},
 				{
 					ProductGroup = 2A43576E11C0CAF7009A6A60 /* Products */;
@@ -1468,6 +1550,27 @@
 			remoteRef = F8618DD910DAE4A100C41188 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		FEE0AE7117CE47C50024B3C4 /* AppPassword.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AppPassword.framework;
+			remoteRef = FEE0AE7017CE47C50024B3C4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FEE0AE8117CE47CD0024B3C4 /* libSecureFoundation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSecureFoundation.a;
+			remoteRef = FEE0AE8017CE47CD0024B3C4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FEE0AE8317CE47CD0024B3C4 /* SecureFoundationTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SecureFoundationTests.octest;
+			remoteRef = FEE0AE8217CE47CD0024B3C4 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1609,6 +1712,7 @@
 				14F83D31113725E50096DE57 /* WebView.xib in Resources */,
 				14F8432411372EF30096DE57 /* aboutGabor.jpg in Resources */,
 				2A43589F11C0D845009A6A60 /* Three20.bundle in Resources */,
+				FEE0AE9017CE49270024B3C4 /* AppPassword.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1678,6 +1782,7 @@
 				14F8431B11372CE00096DE57 /* NSObject+SBJSON.m in Sources */,
 				14F8431C11372CE00096DE57 /* NSString+SBJSON.m in Sources */,
 				14F8431D11372CE00096DE57 /* SBJSON.m in Sources */,
+				FEE0AE9317CE4E0F0024B3C4 /* APViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1723,6 +1828,16 @@
 			isa = PBXTargetDependency;
 			name = "MailCore iPhone";
 			targetProxy = F8618DDB10DAE4B800C41188 /* PBXContainerItemProxy */;
+		};
+		FEE0AE8517CE47F90024B3C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AppPassword;
+			targetProxy = FEE0AE8417CE47F90024B3C4 /* PBXContainerItemProxy */;
+		};
+		FEE0AE8B17CE48760024B3C4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SecureFoundation;
+			targetProxy = FEE0AE8A17CE48760024B3C4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

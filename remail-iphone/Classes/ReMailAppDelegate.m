@@ -37,9 +37,12 @@
 #import "StoreObserver.h"
 #import <StoreKit/StoreKit.h>
 
+#import "APViewController.h"
+
+
 @implementation ReMailAppDelegate
 
-@synthesize window;
+@synthesize window = _window;
 @synthesize pushSetupScreen;
 
 -(void)dealloc {
@@ -160,8 +163,31 @@
 	}
 }
 
+
+#if 0
+- (void)performLaunchSteps {
+    
+    APViewController *apc = [[APViewController alloc] init];
+    apc.delegate = (id)self;
+    
+    _window.rootViewController = apc;
+    [_window makeKeyAndVisible];
+
+}
+
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary*)options {
 	[NSThread setThreadPriority:1.0];
+    
+    [self performLaunchSteps];
+    
+    return YES;
+}
+
+- (void)validUserAccess:(APViewController *)controller {
+    NSLog(@"validUserAccess - Delegate");
+    	
+	NSDictionary *options = nil;
+        
 	
 	// set path for log output to send home
 	[self setImapErrorLogPath];
@@ -209,9 +235,67 @@
 	
 	//removed after I cut out store
 	//[[SKPaymentQueue defaultQueue] addTransactionObserver:[StoreObserver getSingleton]];
-	
-	return YES;
 }
+
+#else
+
+
+-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary*)options {
+	[NSThread setThreadPriority:1.0];
+    
+	
+	// set path for log output to send home
+	[self setImapErrorLogPath];
+	
+	// handle reset and clearing attachments
+	// (the user can reset all data in iPhone > Settings)
+	if([AppSettings reset]) {
+		[self resetApp];
+	}
+	
+	// we're not selling reMail any more, so we can just activate all purchases
+	[self activateAllPurchasedFeatures];
+	
+	BOOL firstSync = [AppSettings firstSync];
+	
+	if(firstSync) {
+		[AppSettings setDatastoreVersion:1];
+		
+		//Need to set up first account
+		AccountTypeSelectViewController* accountTypeVC;
+		accountTypeVC = [[AccountTypeSelectViewController alloc] initWithNibName:@"AccountTypeSelect" bundle:nil];
+		
+		accountTypeVC.firstSetup = YES;
+		accountTypeVC.accountNum = 0;
+		accountTypeVC.newAccount = YES;
+		
+		UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:accountTypeVC];
+		[self.window addSubview:navController.view];
+		[accountTypeVC release];
+	} else {
+		// already set up - let's go to the home screen
+		HomeViewController *homeController = [[HomeViewController alloc] initWithNibName:@"HomeView" bundle:nil];
+		UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:homeController];
+		navController.navigationBarHidden = NO;
+		[self.window addSubview:navController.view];
+		
+		if(options != nil) {
+			[homeController loadIt];
+			[homeController toolbarRefreshClicked:nil];
+		}
+		[homeController release];
+	}
+	
+	[window makeKeyAndVisible];
+	
+	//removed after I cut out store
+	//[[SKPaymentQueue defaultQueue] addTransactionObserver:[StoreObserver getSingleton]];
+    
+    return YES;
+}
+
+#endif
+
 
 - (void)applicationWillTerminate:(UIApplication *)application {
    
