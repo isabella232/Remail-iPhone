@@ -164,7 +164,7 @@
 }
 
 
-#if 0
+#if 1
 - (void)performLaunchSteps {
     
     APViewController *apc = [[APViewController alloc] init];
@@ -327,6 +327,17 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	// If a sync was ongoing, restart it
 	NSLog(@"applicationDidBecomeActive");
+
+    [self performLaunchSteps];
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSLog(@"did enter background");
+    //** blank out root window
+    self.window.rootViewController = 0;
 }
 
 @end

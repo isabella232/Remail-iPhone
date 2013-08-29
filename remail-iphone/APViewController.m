@@ -10,8 +10,10 @@
 
 @interface APViewController ()
 
-@property (nonatomic) APPass    *pass;
-@property (nonatomic) APPass    *question;
+//** key to retain these objects (pass and questions) b/c ARC will deallocate when view this view controller is backgrounded
+@property (nonatomic, retain) APPass    *pass;
+@property (nonatomic, retain) APPass    *question;
+
 @property (nonatomic) NSInteger  numberOfQuestion;
 @property (nonatomic) PASS_CTL   passControl;
 
@@ -105,10 +107,6 @@ bool obj_var = FALSE;
         //** first time login: create password and questions
         self.pass.verify         = nil;
         self.passControl         = PASS_CREATE;
-        
-        //** disable forgot button
-        _forgotButton.alpha = 0.6f;
-        [_forgotButton setEnabled:NO];
     }
     // ---------------------------------------------------------------
     // setting the parent will cause the passView to be displayed

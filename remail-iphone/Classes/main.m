@@ -19,7 +19,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReMailAppDelegate.h"
 
+#if 0
 void sig_handler (int sig)
 {
 	//TODO(gabor): Really do this?
@@ -38,13 +40,21 @@ void sig_handler (int sig)
 	} 
 	signal(SIGPIPE, sig_handler); /* restore signal handling */
 }
-
+#endif
 
 int main(int argc, char *argv[]) {
-	signal(SIGPIPE, sig_handler);
+	//signal(SIGPIPE, sig_handler);
 
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([ReMailAppDelegate class]));
+    }
+
+#if 0
+    //** old
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     int retVal = UIApplicationMain(argc, argv, nil, nil);
     [pool release];
     return retVal;
+#endif
+
 }
