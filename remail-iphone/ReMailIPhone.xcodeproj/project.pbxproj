@@ -203,6 +203,7 @@
 		2A43589F11C0D845009A6A60 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A43589E11C0D845009A6A60 /* Three20.bundle */; };
 		3EF3529917D114FF00886D7C /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E76E98517D0E63800BFE9CA /* libsqlcipher.a */; };
 		3EF3529B17D114FF00886D7C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF3529A17D114FF00886D7C /* libcrypto.a */; };
+		3EF3529F17D1230200886D7C /* DBAccessorSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF3529E17D1230200886D7C /* DBAccessorSetup.m */; };
 		A67025ED1243396D003519CB /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B0AC8B115484D000944873 /* libssl.a */; };
 		A67025EE1243396D003519CB /* libsasl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14019BA010DC26A40000859B /* libsasl2.a */; };
 		F83C988F1566DFB40005B167 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83C988E1566DFB40005B167 /* QuartzCore.framework */; };
@@ -794,6 +795,8 @@
 		3E76E97C17D0E63700BFE9CA /* sqlcipher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sqlcipher.xcodeproj; path = ../vendor/sqlcipher/sqlcipher.xcodeproj; sourceTree = "<group>"; };
 		3E76E98D17D0E64900BFE9CA /* openssl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openssl.xcodeproj; path = "../vendor/openssl-xcode.git/openssl.xcodeproj"; sourceTree = "<group>"; };
 		3EF3529A17D114FF00886D7C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../../../Library/Developer/Xcode/DerivedData/ReMailIPhone-doctfhrngncihnbzfekyaydrqcxg/Build/Products/Debug-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
+		3EF3529D17D1230200886D7C /* DBAccessorSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBAccessorSetup.h; path = DBAccessors/DBAccessorSetup.h; sourceTree = "<group>"; };
+		3EF3529E17D1230200886D7C /* DBAccessorSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBAccessorSetup.m; path = DBAccessors/DBAccessorSetup.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F83C988E1566DFB40005B167 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		F83C98901566DFBA0005B167 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -1224,6 +1227,8 @@
 				14F84061113727AF0096DE57 /* SearchEmailDBAccessor.m */,
 				14F84062113727AF0096DE57 /* UidDBAccessor.h */,
 				14F84063113727AF0096DE57 /* UidDBAccessor.m */,
+				3EF3529D17D1230200886D7C /* DBAccessorSetup.h */,
+				3EF3529E17D1230200886D7C /* DBAccessorSetup.m */,
 			);
 			name = DBAccessors;
 			sourceTree = "<group>";
@@ -1863,6 +1868,7 @@
 				14F8431C11372CE00096DE57 /* NSString+SBJSON.m in Sources */,
 				14F8431D11372CE00096DE57 /* SBJSON.m in Sources */,
 				FEE0AE9317CE4E0F0024B3C4 /* APViewController.m in Sources */,
+				3EF3529F17D1230200886D7C /* DBAccessorSetup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2068,12 +2074,17 @@
 					"\"$(BUILT_PRODUCTS_DIR)/../three20\"/**",
 					"../mailcore/libetpan/build-mac/include/**",
 					"\"$(BUILT_PRODUCTS_DIR)/../../three20\"/**",
+					sqlcipher,
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/ReMailIPhone-doctfhrngncihnbzfekyaydrqcxg/Build/Products/Debug-iphoneos\"",
+				);
+				OTHER_CFLAGS = (
+					"-DSQLITE_HAS_CODEC",
+					"-DSQLITE_ENABLE_FTS3",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = reMail;
@@ -2098,12 +2109,17 @@
 					"\"$(BUILT_PRODUCTS_DIR)/../three20\"/**",
 					"../mailcore/libetpan/build-mac/include/**",
 					"\"$(BUILT_PRODUCTS_DIR)/../../three20\"/**",
+					sqlcipher,
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/ReMailIPhone-doctfhrngncihnbzfekyaydrqcxg/Build/Products/Debug-iphoneos\"",
+				);
+				OTHER_CFLAGS = (
+					"-DSQLITE_HAS_CODEC",
+					"-DSQLITE_ENABLE_FTS3",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = reMail;
@@ -2126,12 +2142,17 @@
 					"\"$(BUILT_PRODUCTS_DIR)/../three20\"/**",
 					"../mailcore/libetpan/build-mac/include/**",
 					"\"$(BUILT_PRODUCTS_DIR)/../../three20\"/**",
+					sqlcipher,
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/ReMailIPhone-doctfhrngncihnbzfekyaydrqcxg/Build/Products/Debug-iphoneos\"",
+				);
+				OTHER_CFLAGS = (
+					"-DSQLITE_HAS_CODEC",
+					"-DSQLITE_ENABLE_FTS3",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = reMail;
