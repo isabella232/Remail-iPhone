@@ -18,6 +18,7 @@
 //  limitations under the License.
 //
 
+#import "SecureFoundation/IMSKeychain.h"
 #import "AppSettings.h"
 #import "StringUtil.h"
 #import <UIKit/UIDevice.h>
@@ -341,28 +342,24 @@
 }
 
 +(NSString*)username:(int)accountNum {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; 
-	NSString* usernamePreference = [defaults stringForKey:[NSString stringWithFormat:@"username_%i", accountNum]];
-	
-	return usernamePreference;
+    NSString *accountStr = [NSString stringWithFormat:@"u_%i", accountNum];
+    return [IMSKeychain securePasswordForService:@"ustorage" account:accountStr];
 }
 
 +(void)setUsername:(NSString*)y accountNum:(int)accountNum {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; 
-	[defaults setObject:y forKey:[NSString stringWithFormat:@"username_%i", accountNum]];
-	[NSUserDefaults resetStandardUserDefaults];
+    NSString *accountStr = [NSString stringWithFormat:@"u_%i", accountNum];
+    
+    [IMSKeychain setSecurePassword:y forService:@"ustorage" account:accountStr];
 }
 
 +(NSString*)password:(int)accountNum{
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; 
-	NSString* passwordPreference = [defaults stringForKey:[NSString stringWithFormat:@"password_%i", accountNum]]; 
-	
-	return passwordPreference;
+    NSString *accountStr = [NSString stringWithFormat:@"p_%i", accountNum];
+    return [IMSKeychain securePasswordForService:@"pstorage" account:accountStr];
 }
 
 +(void)setPassword:(NSString*)y accountNum:(int)accountNum {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; 
-	[defaults setObject:y forKey:[NSString stringWithFormat:@"password_%i", accountNum]];
-	[NSUserDefaults resetStandardUserDefaults];
+    NSString *accountStr = [NSString stringWithFormat:@"p_%i", accountNum];
+
+    [IMSKeychain setSecurePassword:y forService:@"pstorage" account:accountStr];
 }
 @end
