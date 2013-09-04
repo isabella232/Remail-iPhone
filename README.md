@@ -3,6 +3,7 @@ Remail-iPhone
 
 reMail security bolstered with iMAS !!
 
+```
 The following is now available in reMail:
     - Access
       - App Password protecting access to the app
@@ -18,10 +19,11 @@ Coming Soon:
       - Sensitive email account information encrypted while in memory
     - Network certificate pinning
     - SQLCipher OpenSSl FIPS compliant version
+```
 
-###:
+###
 ![reMail and iMAS](readme_images/remail_imas.jpg)
-###:
+###
 ![iMAS Security Adds](readme_images/imas_integration.jpg)
 
 
