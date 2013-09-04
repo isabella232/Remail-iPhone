@@ -38,6 +38,20 @@
 #import <StoreKit/StoreKit.h>
 
 #import "APViewController.h"
+#import "SViewController.h"
+#import <SecurityCheck/SecurityCheck.h>
+
+
+@interface ReMailAppDelegate()
+
+    //-----------------------------------
+    // Callback block from SecurityCheck
+    //-----------------------------------
+    typedef void (^cbBlock) (void);
+
+    - (void) weHaveAProblem;
+
+@end
 
 
 @implementation ReMailAppDelegate
@@ -164,9 +178,60 @@
 }
 
 
-#if 1
+//*************************************
+//*************************************
+//**
+//** iMAS security init code
+//**
+
 - (void)performLaunchSteps {
     
+#if TARGET_OS_IPHONE && !TARGET_IPHONE_SIMULATOR
+    
+    
+#if 1
+    //--------------------------------
+    // do not allow debuggers
+    //--------------------------------
+    dbgStop;
+    
+    //--------------------------------------------------------------------------
+    // check for the presence of a debugger, call weHaveAProblem if there is one
+    //--------------------------------------------------------------------------
+    cbBlock dbChkCallback = ^{
+        
+        __weak id weakSelf = self;
+        
+        if (weakSelf) [weakSelf weHaveAProblem];
+    };
+    
+    dbgCheck(dbChkCallback);
+#endif
+
+
+    //-----------------------------------
+    // call back to weHaveAProblem
+    //-----------------------------------
+    cbBlock chkCallback  = ^{
+        
+
+        __weak id weakSelf = self;
+        
+        if (weakSelf) [weakSelf weHaveAProblem];
+    };
+
+    //-----------------------------------
+    // jailbreak detection
+    //-----------------------------------
+    checkFork(chkCallback);
+    checkFiles(chkCallback);
+    checkLinks(chkCallback);
+    
+    
+#endif
+
+    
+    //** Launch passcode
     APViewController *apc = [[APViewController alloc] init];
     apc.delegate = (id)self;
     
@@ -174,6 +239,48 @@
     [_window makeKeyAndVisible];
 
 }
+
+
+//--------------------------------------------------------------------
+// if a debugger is attached to the app or jailbreak detection then this method will be called
+//--------------------------------------------------------------------
+- (void) weHaveAProblem {
+    NSLog(@"weHaveAProblem in AppDelegate");
+    
+    //** cause segfault
+    //int *foo = (int*)-1; // make a bad pointer
+    //printf("%d\n", *foo);       // causes segfault
+    
+    //** OR launch blank, black colored window that hangs the user
+    SViewController *sc = [[SViewController alloc] init];
+    _window.rootViewController = sc;
+    [_window makeKeyAndVisible];
+
+#if 1
+    //** OR re-launch the splash screen, must be preceded by SViewController as that controller overwrites the rootcontroller
+    //** which changes the app flow
+    UIImageView *myImageView =[[UIImageView alloc]
+                               initWithFrame:CGRectMake(0.0,0.0,self.window.frame.size.width,self.window.frame.size.height)];
+    
+    myImageView.image=[UIImage imageNamed:@"Default.png"];
+    myImageView.tag=22;
+    [self.window addSubview:myImageView ];
+    [myImageView release];
+    [self.window bringSubviewToFront:myImageView];
+#endif
+    
+    //** OR make this thread stop and spin - not that effective as rest of app continues
+    //volatile int dummy_side_effect;
+    //
+    //while (1) {  dummy_side_effect = 0; }
+    //NSLog(@"Never prints.");
+
+
+    //** recommend not EXITing as foresics can easily find exit(0) and replace with NOP
+    //exit(0);
+}
+
+
 
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary*)options {
 	[NSThread setThreadPriority:1.0];
@@ -236,66 +343,6 @@
 	//removed after I cut out store
 	//[[SKPaymentQueue defaultQueue] addTransactionObserver:[StoreObserver getSingleton]];
 }
-
-#else
-
-
--(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary*)options {
-	[NSThread setThreadPriority:1.0];
-    
-	
-	// set path for log output to send home
-	[self setImapErrorLogPath];
-	
-	// handle reset and clearing attachments
-	// (the user can reset all data in iPhone > Settings)
-	if([AppSettings reset]) {
-		[self resetApp];
-	}
-	
-	// we're not selling reMail any more, so we can just activate all purchases
-	[self activateAllPurchasedFeatures];
-	
-	BOOL firstSync = [AppSettings firstSync];
-	
-	if(firstSync) {
-		[AppSettings setDatastoreVersion:1];
-		
-		//Need to set up first account
-		AccountTypeSelectViewController* accountTypeVC;
-		accountTypeVC = [[AccountTypeSelectViewController alloc] initWithNibName:@"AccountTypeSelect" bundle:nil];
-		
-		accountTypeVC.firstSetup = YES;
-		accountTypeVC.accountNum = 0;
-		accountTypeVC.newAccount = YES;
-		
-		UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:accountTypeVC];
-		[self.window addSubview:navController.view];
-		[accountTypeVC release];
-	} else {
-		// already set up - let's go to the home screen
-		HomeViewController *homeController = [[HomeViewController alloc] initWithNibName:@"HomeView" bundle:nil];
-		UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:homeController];
-		navController.navigationBarHidden = NO;
-		[self.window addSubview:navController.view];
-		
-		if(options != nil) {
-			[homeController loadIt];
-			[homeController toolbarRefreshClicked:nil];
-		}
-		[homeController release];
-	}
-	
-	[window makeKeyAndVisible];
-	
-	//removed after I cut out store
-	//[[SKPaymentQueue defaultQueue] addTransactionObserver:[StoreObserver getSingleton]];
-    
-    return YES;
-}
-
-#endif
-
 
 - (void)applicationWillTerminate:(UIApplication *)application {
    

@@ -222,6 +222,8 @@
 		F83C98A41566E0450005B167 /* libThree20UINavigator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A43586911C0D495009A6A60 /* libThree20UINavigator.a */; };
 		F8618DDD10DAE4C600C41188 /* libmailcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8618DDA10DAE4A100C41188 /* libmailcore.a */; };
 		F86BECBB157689050080308C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86BECBA157689050080308C /* CFNetwork.framework */; };
+		FE575AE117D668D200A97359 /* libSecurityCheck.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE98DBF917D0EE2E00D04A26 /* libSecurityCheck.a */; };
+		FE575AF017D6733800A97359 /* SViewContrller.m in Sources */ = {isa = PBXBuildFile; fileRef = FE575AEE17D6733800A97359 /* SViewContrller.m */; };
 		FEE0AE8917CE48580024B3C4 /* libSecureFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE0AE8117CE47CD0024B3C4 /* libSecureFoundation.a */; };
 		FEE0AE8D17CE48A90024B3C4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE0AE8C17CE48A90024B3C4 /* Security.framework */; };
 		FEE0AE9017CE49270024B3C4 /* AppPassword.framework in Resources */ = {isa = PBXBuildFile; fileRef = FEE0AE8F17CE49270024B3C4 /* AppPassword.framework */; };
@@ -404,6 +406,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = F8618B5610DADB5C00C41188;
 			remoteInfo = "MailCore iPhone";
+		};
+		FE98DBF817D0EE2E00D04A26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE98DBF117D0EE2C00D04A26 /* SecurityCheck.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 48965CF016F2044E00B14F8A;
+			remoteInfo = SecurityCheck;
+		};
+		FE98DC0117D0EEA400D04A26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE98DBF117D0EE2C00D04A26 /* SecurityCheck.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 48965CEF16F2044E00B14F8A;
+			remoteInfo = SecurityCheck;
 		};
 		FEE0AE7017CE47C50024B3C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -776,10 +792,13 @@
 		F83C989C1566E0040005B167 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		F8618DC810DAE4A100C41188 /* MailCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MailCore.xcodeproj; path = ../mailcore/MailCore.xcodeproj; sourceTree = SOURCE_ROOT; };
 		F86BECBA157689050080308C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		FE575AEE17D6733800A97359 /* SViewContrller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SViewContrller.m; path = Classes/SViewContrller.m; sourceTree = "<group>"; };
+		FE575AEF17D6733800A97359 /* SViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SViewController.h; path = Classes/SViewController.h; sourceTree = "<group>"; };
+		FE98DBF117D0EE2C00D04A26 /* SecurityCheck.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SecurityCheck.xcodeproj; path = "../vendor/security-check/SecurityCheck.xcodeproj"; sourceTree = "<group>"; };
 		FEE0AE6C17CE47C50024B3C4 /* AppPassword.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AppPassword.xcodeproj; path = "../vendor/app-password/AppPassword.xcodeproj"; sourceTree = "<group>"; };
 		FEE0AE7B17CE47CC0024B3C4 /* SecureFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SecureFoundation.xcodeproj; path = ../vendor/securefoundation/SecureFoundation.xcodeproj; sourceTree = "<group>"; };
 		FEE0AE8C17CE48A90024B3C4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		FEE0AE8F17CE49270024B3C4 /* AppPassword.framework */ = {isa = PBXFileReference; lastKnownFileType = file; name = AppPassword.framework; path = "Build/Products/Debug-iphoneos/AppPassword.framework"; sourceTree = "<group>"; };
+		FEE0AE8F17CE49270024B3C4 /* AppPassword.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppPassword.framework; path = "Build/Products/Debug-iphoneos/AppPassword.framework"; sourceTree = "<group>"; };
 		FEE0AE9117CE4E0F0024B3C4 /* APViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APViewController.h; sourceTree = "<group>"; };
 		FEE0AE9217CE4E0F0024B3C4 /* APViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -789,6 +808,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE575AE117D668D200A97359 /* libSecurityCheck.a in Frameworks */,
 				FEE0AE8D17CE48A90024B3C4 /* Security.framework in Frameworks */,
 				F86BECBB157689050080308C /* CFNetwork.framework in Frameworks */,
 				F83C989F1566E0450005B167 /* libThree20Core.a in Frameworks */,
@@ -1062,6 +1082,8 @@
 				14F842DF113728830096DE57 /* UsageViewController.h */,
 				14F842E0113728830096DE57 /* UsageViewController.m */,
 				FEE0AE9117CE4E0F0024B3C4 /* APViewController.h */,
+				FE575AEE17D6733800A97359 /* SViewContrller.m */,
+				FE575AEF17D6733800A97359 /* SViewController.h */,
 				FEE0AE9217CE4E0F0024B3C4 /* APViewController.m */,
 				148110580F410F13000E3CBD /* ReMailAppDelegate.h */,
 				148110590F410F13000E3CBD /* ReMailAppDelegate.m */,
@@ -1146,6 +1168,7 @@
 		29B97314FDCFA39411CA2CEA /* NextMailIPhone */ = {
 			isa = PBXGroup;
 			children = (
+				FE98DBF117D0EE2C00D04A26 /* SecurityCheck.xcodeproj */,
 				FEE0AE8C17CE48A90024B3C4 /* Security.framework */,
 				FEE0AE7B17CE47CC0024B3C4 /* SecureFoundation.xcodeproj */,
 				FEE0AE6C17CE47C50024B3C4 /* AppPassword.xcodeproj */,
@@ -1312,6 +1335,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		FE98DBF217D0EE2C00D04A26 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FE98DBF917D0EE2E00D04A26 /* libSecurityCheck.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		FEE0AE6D17CE47C50024B3C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1346,6 +1377,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FE98DC0217D0EEA400D04A26 /* PBXTargetDependency */,
 				FEE0AE8B17CE48760024B3C4 /* PBXTargetDependency */,
 				FEE0AE8517CE47F90024B3C4 /* PBXTargetDependency */,
 				F8618DDC10DAE4B800C41188 /* PBXTargetDependency */,
@@ -1393,6 +1425,10 @@
 				{
 					ProductGroup = FEE0AE7C17CE47CC0024B3C4 /* Products */;
 					ProjectRef = FEE0AE7B17CE47CC0024B3C4 /* SecureFoundation.xcodeproj */;
+				},
+				{
+					ProductGroup = FE98DBF217D0EE2C00D04A26 /* Products */;
+					ProjectRef = FE98DBF117D0EE2C00D04A26 /* SecurityCheck.xcodeproj */;
 				},
 				{
 					ProductGroup = 2A43576E11C0CAF7009A6A60 /* Products */;
@@ -1548,6 +1584,13 @@
 			fileType = archive.ar;
 			path = libmailcore.a;
 			remoteRef = F8618DD910DAE4A100C41188 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FE98DBF917D0EE2E00D04A26 /* libSecurityCheck.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSecurityCheck.a;
+			remoteRef = FE98DBF817D0EE2E00D04A26 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		FEE0AE7117CE47C50024B3C4 /* AppPassword.framework */ = {
@@ -1783,6 +1826,7 @@
 				14F8431C11372CE00096DE57 /* NSString+SBJSON.m in Sources */,
 				14F8431D11372CE00096DE57 /* SBJSON.m in Sources */,
 				FEE0AE9317CE4E0F0024B3C4 /* APViewController.m in Sources */,
+				FE575AF017D6733800A97359 /* SViewContrller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1828,6 +1872,11 @@
 			isa = PBXTargetDependency;
 			name = "MailCore iPhone";
 			targetProxy = F8618DDB10DAE4B800C41188 /* PBXContainerItemProxy */;
+		};
+		FE98DC0217D0EEA400D04A26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SecurityCheck;
+			targetProxy = FE98DC0117D0EEA400D04A26 /* PBXContainerItemProxy */;
 		};
 		FEE0AE8517CE47F90024B3C4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1957,7 +2006,7 @@
 				HEADER_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-objC";
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator4.1;
+				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Distribution;
@@ -2052,7 +2101,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-objC";
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator4.1;
+				SDKROOT = iphoneos;
 				STRIP_INSTALLED_PRODUCT = NO;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
@@ -2071,7 +2120,7 @@
 				HEADER_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-objC";
 				PREBINDING = NO;
-				SDKROOT = iphonesimulator4.1;
+				SDKROOT = iphoneos;
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;

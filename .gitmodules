@@ -4,3 +4,6 @@
 [submodule "vendor/securefoundation"]
 	path = vendor/securefoundation
 	url = git@github.com:project-imas/securefoundation.git
+[submodule "vendor/security-check"]
+	path = vendor/security-check
+	url = git@github.com:project-imas/security-check.git
