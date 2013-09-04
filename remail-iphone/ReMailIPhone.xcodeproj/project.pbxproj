@@ -136,7 +136,6 @@
 		14F83CE7113723340096DE57 /* toolbarSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 14F83C86113723340096DE57 /* toolbarSettings.png */; };
 		14F83CE8113723340096DE57 /* unreadIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 14F83C87113723340096DE57 /* unreadIndicator.png */; };
 		14F83CE9113723340096DE57 /* usageIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14F83C88113723340096DE57 /* usageIcon.png */; };
-		14F83D02113725450096DE57 /* sqlite3.c in Sources */ = {isa = PBXBuildFile; fileRef = 14F83D00113725450096DE57 /* sqlite3.c */; };
 		14F83D1B113725E50096DE57 /* Attachment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14F83D04113725E50096DE57 /* Attachment.xib */; };
 		14F83D1C113725E50096DE57 /* AutocompleteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14F83D05113725E50096DE57 /* AutocompleteCell.xib */; };
 		14F83D1E113725E50096DE57 /* FlexiConfig.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14F83D07113725E50096DE57 /* FlexiConfig.xib */; };
@@ -202,9 +201,11 @@
 		20DB96D40F5CBA1C0015FE73 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DB96D30F5CBA1C0015FE73 /* Reachability.m */; };
 		20DB96EE0F5CBB0C0015FE73 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20DB96ED0F5CBB0C0015FE73 /* SystemConfiguration.framework */; };
 		2A43589F11C0D845009A6A60 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A43589E11C0D845009A6A60 /* Three20.bundle */; };
+		3EF3529917D114FF00886D7C /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E76E98517D0E63800BFE9CA /* libsqlcipher.a */; };
+		3EF3529B17D114FF00886D7C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF3529A17D114FF00886D7C /* libcrypto.a */; };
+		3EF3529F17D1230200886D7C /* DBAccessorSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF3529E17D1230200886D7C /* DBAccessorSetup.m */; };
 		A67025ED1243396D003519CB /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B0AC8B115484D000944873 /* libssl.a */; };
 		A67025EE1243396D003519CB /* libsasl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14019BA010DC26A40000859B /* libsasl2.a */; };
-		A67025EF1243396D003519CB /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 147537361155B73A00E1AA38 /* libcrypto.a */; };
 		F83C988F1566DFB40005B167 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83C988E1566DFB40005B167 /* QuartzCore.framework */; };
 		F83C98911566DFBA0005B167 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83C98901566DFBA0005B167 /* StoreKit.framework */; };
 		F83C98931566DFC10005B167 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83C98921566DFC10005B167 /* CoreLocation.framework */; };
@@ -371,6 +372,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = BEF31F390F352DF5000DE5D2;
 			remoteInfo = Three20Network;
+		};
+		3E76E98417D0E63800BFE9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E76E97C17D0E63700BFE9CA /* sqlcipher.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC046055464E500DB518D;
+			remoteInfo = sqlcipher;
+		};
+		3E76E99117D0E64A00BFE9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E76E98D17D0E64900BFE9CA /* openssl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9069D28C0FCE659A0042E34C;
+			remoteInfo = crypto;
+		};
+		3EF3529517D114DE00886D7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E76E97C17D0E63700BFE9CA /* sqlcipher.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC045055464E500DB518D;
+			remoteInfo = sqlcipher;
+		};
+		3EF3529717D114E300886D7C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E76E98D17D0E64900BFE9CA /* openssl.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9069D28B0FCE659A0042E34C;
+			remoteInfo = crypto;
 		};
 		A6F6B5D612432368007F4CED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -662,8 +691,6 @@
 		14F83C86113723340096DE57 /* toolbarSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = toolbarSettings.png; path = Resources/Artwork/toolbarSettings.png; sourceTree = "<group>"; };
 		14F83C87113723340096DE57 /* unreadIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = unreadIndicator.png; path = Resources/Artwork/unreadIndicator.png; sourceTree = "<group>"; };
 		14F83C88113723340096DE57 /* usageIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = usageIcon.png; path = Resources/Artwork/usageIcon.png; sourceTree = "<group>"; };
-		14F83D00113725450096DE57 /* sqlite3.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = sqlite3.c; path = sqlite3/sqlite3.c; sourceTree = "<group>"; };
-		14F83D01113725450096DE57 /* sqlite3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sqlite3.h; path = sqlite3/sqlite3.h; sourceTree = "<group>"; };
 		14F83D04113725E50096DE57 /* Attachment.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Attachment.xib; path = Resources/xibs/Attachment.xib; sourceTree = "<group>"; };
 		14F83D05113725E50096DE57 /* AutocompleteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = AutocompleteCell.xib; path = Resources/xibs/AutocompleteCell.xib; sourceTree = "<group>"; };
 		14F83D07113725E50096DE57 /* FlexiConfig.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FlexiConfig.xib; path = Resources/xibs/FlexiConfig.xib; sourceTree = "<group>"; };
@@ -781,6 +808,11 @@
 		2A43584B11C0D495009A6A60 /* Three20UI.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20UI.xcodeproj; path = ../three20/src/Three20UI/Three20UI.xcodeproj; sourceTree = SOURCE_ROOT; };
 		2A43589E11C0D845009A6A60 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Three20.bundle; path = ../three20/src/Three20.bundle; sourceTree = SOURCE_ROOT; };
 		2A4358C011C0D8A9009A6A60 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3E76E97C17D0E63700BFE9CA /* sqlcipher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sqlcipher.xcodeproj; path = ../vendor/sqlcipher/sqlcipher.xcodeproj; sourceTree = "<group>"; };
+		3E76E98D17D0E64900BFE9CA /* openssl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openssl.xcodeproj; path = "../vendor/openssl-xcode.git/openssl.xcodeproj"; sourceTree = "<group>"; };
+		3EF3529A17D114FF00886D7C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../../../Library/Developer/Xcode/DerivedData/ReMailIPhone-doctfhrngncihnbzfekyaydrqcxg/Build/Products/Debug-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
+		3EF3529D17D1230200886D7C /* DBAccessorSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBAccessorSetup.h; path = DBAccessors/DBAccessorSetup.h; sourceTree = "<group>"; };
+		3EF3529E17D1230200886D7C /* DBAccessorSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBAccessorSetup.m; path = DBAccessors/DBAccessorSetup.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F83C988E1566DFB40005B167 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		F83C98901566DFBA0005B167 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -809,6 +841,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE575AE117D668D200A97359 /* libSecurityCheck.a in Frameworks */,
+				3EF3529B17D114FF00886D7C /* libcrypto.a in Frameworks */,
+				3EF3529917D114FF00886D7C /* libsqlcipher.a in Frameworks */,
 				FEE0AE8D17CE48A90024B3C4 /* Security.framework in Frameworks */,
 				F86BECBB157689050080308C /* CFNetwork.framework in Frameworks */,
 				F83C989F1566E0450005B167 /* libThree20Core.a in Frameworks */,
@@ -830,7 +864,6 @@
 				FEE0AE9717CE62CF0024B3C4 /* AppPassword.framework in Frameworks */,
 				A67025ED1243396D003519CB /* libssl.a in Frameworks */,
 				A67025EE1243396D003519CB /* libsasl2.a in Frameworks */,
-				A67025EF1243396D003519CB /* libcrypto.a in Frameworks */,
 				F8618DDD10DAE4C600C41188 /* libmailcore.a in Frameworks */,
 				20DB96EE0F5CBB0C0015FE73 /* SystemConfiguration.framework in Frameworks */,
 				14E5E17510853B58007C241E /* AddressBook.framework in Frameworks */,
@@ -1028,15 +1061,6 @@
 			name = Other;
 			sourceTree = "<group>";
 		};
-		148936C30FF97E7D00AFAD05 /* sqlite3 */ = {
-			isa = PBXGroup;
-			children = (
-				14F83D00113725450096DE57 /* sqlite3.c */,
-				14F83D01113725450096DE57 /* sqlite3.h */,
-			);
-			name = sqlite3;
-			sourceTree = "<group>";
-		};
 		148937030FF987B700AFAD05 /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -1169,6 +1193,9 @@
 			isa = PBXGroup;
 			children = (
 				FE98DBF117D0EE2C00D04A26 /* SecurityCheck.xcodeproj */,
+				3EF3529A17D114FF00886D7C /* libcrypto.a */,
+				3E76E98D17D0E64900BFE9CA /* openssl.xcodeproj */,
+				3E76E97C17D0E63700BFE9CA /* sqlcipher.xcodeproj */,
 				FEE0AE8C17CE48A90024B3C4 /* Security.framework */,
 				FEE0AE7B17CE47CC0024B3C4 /* SecureFoundation.xcodeproj */,
 				FEE0AE6C17CE47C50024B3C4 /* AppPassword.xcodeproj */,
@@ -1196,7 +1223,6 @@
 				14C4C95A0F253DBA00BFFF6B /* UIClasses */,
 				080E96DDFE201D6D7F000001 /* Models */,
 				29B97315FDCFA39411CA2CEA /* DBAccessors */,
-				148936C30FF97E7D00AFAD05 /* sqlite3 */,
 				207A09F60F5326B20092E457 /* JSON */,
 				142A6BE10FF2C86E00BEF19F /* MailCore */,
 				147BBF240F38DAE500345343 /* Other */,
@@ -1224,6 +1250,8 @@
 				14F84061113727AF0096DE57 /* SearchEmailDBAccessor.m */,
 				14F84062113727AF0096DE57 /* UidDBAccessor.h */,
 				14F84063113727AF0096DE57 /* UidDBAccessor.m */,
+				3EF3529D17D1230200886D7C /* DBAccessorSetup.h */,
+				3EF3529E17D1230200886D7C /* DBAccessorSetup.m */,
 			);
 			name = DBAccessors;
 			sourceTree = "<group>";
@@ -1325,6 +1353,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		3E76E97D17D0E63700BFE9CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E76E98517D0E63800BFE9CA /* libsqlcipher.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3E76E98E17D0E64900BFE9CA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3E76E99217D0E64A00BFE9CA /* libcrypto.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		F8618DC910DAE4A100C41188 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -1373,11 +1417,14 @@
 				1433CCCE0F79883B001BEFC5 /* CopyFiles */,
 				1433CCDB0F7988BE001BEFC5 /* CopyFiles */,
 				1433CCDC0F7988BE001BEFC5 /* CopyFiles */,
+				3EF3529C17D1166700886D7C /* Patch SQLite */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				FE98DC0217D0EEA400D04A26 /* PBXTargetDependency */,
+				3EF3529817D114E300886D7C /* PBXTargetDependency */,
+				3EF3529617D114DE00886D7C /* PBXTargetDependency */,
 				FEE0AE8B17CE48760024B3C4 /* PBXTargetDependency */,
 				FEE0AE8517CE47F90024B3C4 /* PBXTargetDependency */,
 				F8618DDC10DAE4B800C41188 /* PBXTargetDependency */,
@@ -1423,12 +1470,17 @@
 					ProjectRef = F8618DC810DAE4A100C41188 /* MailCore.xcodeproj */;
 				},
 				{
+					ProductGroup = 3E76E98E17D0E64900BFE9CA /* Products */;
+					ProjectRef = 3E76E98D17D0E64900BFE9CA /* openssl.xcodeproj */;
+				},
+				{
 					ProductGroup = FEE0AE7C17CE47CC0024B3C4 /* Products */;
 					ProjectRef = FEE0AE7B17CE47CC0024B3C4 /* SecureFoundation.xcodeproj */;
 				},
 				{
 					ProductGroup = FE98DBF217D0EE2C00D04A26 /* Products */;
 					ProjectRef = FE98DBF117D0EE2C00D04A26 /* SecurityCheck.xcodeproj */;
+					ProjectRef = 3E76E97C17D0E63700BFE9CA /* sqlcipher.xcodeproj */;
 				},
 				{
 					ProductGroup = 2A43576E11C0CAF7009A6A60 /* Products */;
@@ -1565,6 +1617,20 @@
 			remoteRef = 2A43587011C0D495009A6A60 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		3E76E98517D0E63800BFE9CA /* libsqlcipher.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libsqlcipher.a;
+			remoteRef = 3E76E98417D0E63800BFE9CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3E76E99217D0E64A00BFE9CA /* libcrypto.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libcrypto.a;
+			remoteRef = 3E76E99117D0E64A00BFE9CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		F8618DD610DAE4A100C41188 /* MailCore.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1629,9 +1695,9 @@
 				14CEB0471010998400025F41 /* HomeView.xib in Resources */,
 				14CEB04A1010999200025F41 /* ImapConfig.xib in Resources */,
 				14CEB04D101099A200025F41 /* Intro.xib in Resources */,
+				140909C01014133A000D9121 /* notice.txt in Resources */,
 				14CEB050101099AE00025F41 /* SearchEntryView.xib in Resources */,
 				14CEB053101099BA00025F41 /* Status.xib in Resources */,
-				140909C01014133A000D9121 /* notice.txt in Resources */,
 				146CABFB105D51F6003D2E99 /* ErrorView.xib in Resources */,
 				14E5E0A410852DE1007C241E /* About.xib in Resources */,
 				14F83C89113723340096DE57 /* aboutGoogle.png in Resources */,
@@ -1761,6 +1827,23 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3EF3529C17D1166700886D7C /* Patch SQLite */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Patch SQLite";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"#define SQLITE_ENABLE_FTS3 1\" > /tmp/sqlite3.c\ncat \"../vendor/sqlcipher/sqlite3.c\" >> /tmp/sqlite3.c\nmv /tmp/sqlite3.c ../vendor/sqlcipher/sqlite3.c";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1785,7 +1868,6 @@
 				14D96EED0FF6E990008F3BCC /* StatusViewController.m in Sources */,
 				148938560FF9A9AA00AFAD05 /* UidEntry.m in Sources */,
 				14E95474104484C8006ABA93 /* WebViewController.m in Sources */,
-				14F83D02113725450096DE57 /* sqlite3.c in Sources */,
 				14F83D46113726E60096DE57 /* BuchheitTimer.m in Sources */,
 				14F83D47113726E60096DE57 /* DateUtil.m in Sources */,
 				14F83D48113726E60096DE57 /* main.m in Sources */,
@@ -1827,6 +1909,7 @@
 				14F8431D11372CE00096DE57 /* SBJSON.m in Sources */,
 				FEE0AE9317CE4E0F0024B3C4 /* APViewController.m in Sources */,
 				FE575AF017D6733800A97359 /* SViewContrller.m in Sources */,
+				3EF3529F17D1230200886D7C /* DBAccessorSetup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1862,6 +1945,16 @@
 			isa = PBXTargetDependency;
 			name = Three20Network;
 			targetProxy = 2A43589911C0D805009A6A60 /* PBXContainerItemProxy */;
+		};
+		3EF3529617D114DE00886D7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = sqlcipher;
+			targetProxy = 3EF3529517D114DE00886D7C /* PBXContainerItemProxy */;
+		};
+		3EF3529817D114E300886D7C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = crypto;
+			targetProxy = 3EF3529717D114E300886D7C /* PBXContainerItemProxy */;
 		};
 		A6F6B5D712432368007F4CED /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -2027,9 +2120,18 @@
 					"\"$(BUILT_PRODUCTS_DIR)/../three20\"/**",
 					"../mailcore/libetpan/build-mac/include/**",
 					"\"$(BUILT_PRODUCTS_DIR)/../../three20\"/**",
+					sqlcipher,
 				);
 				INFOPLIST_FILE = Info.plist;
-				LIBRARY_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/ReMailIPhone-doctfhrngncihnbzfekyaydrqcxg/Build/Products/Debug-iphoneos\"",
+				);
+				OTHER_CFLAGS = (
+					"-DSQLITE_HAS_CODEC",
+					"-DSQLITE_ENABLE_FTS3",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = reMail;
 				SDKROOT = iphoneos;
@@ -2053,9 +2155,18 @@
 					"\"$(BUILT_PRODUCTS_DIR)/../three20\"/**",
 					"../mailcore/libetpan/build-mac/include/**",
 					"\"$(BUILT_PRODUCTS_DIR)/../../three20\"/**",
+					sqlcipher,
 				);
 				INFOPLIST_FILE = Info.plist;
-				LIBRARY_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/ReMailIPhone-doctfhrngncihnbzfekyaydrqcxg/Build/Products/Debug-iphoneos\"",
+				);
+				OTHER_CFLAGS = (
+					"-DSQLITE_HAS_CODEC",
+					"-DSQLITE_ENABLE_FTS3",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = reMail;
 				SDKROOT = iphoneos;
@@ -2077,9 +2188,18 @@
 					"\"$(BUILT_PRODUCTS_DIR)/../three20\"/**",
 					"../mailcore/libetpan/build-mac/include/**",
 					"\"$(BUILT_PRODUCTS_DIR)/../../three20\"/**",
+					sqlcipher,
 				);
 				INFOPLIST_FILE = Info.plist;
-				LIBRARY_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/ReMailIPhone-doctfhrngncihnbzfekyaydrqcxg/Build/Products/Debug-iphoneos\"",
+				);
+				OTHER_CFLAGS = (
+					"-DSQLITE_HAS_CODEC",
+					"-DSQLITE_ENABLE_FTS3",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = reMail;
 				SDKROOT = iphoneos;

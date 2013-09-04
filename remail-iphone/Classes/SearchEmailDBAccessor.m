@@ -19,6 +19,7 @@
 // ----------------------------------------------------------------------
 
 #import "SearchEmailDBAccessor.h"
+#import "DBAccessorSetup.h"
 
 static SearchEmailDBAccessor *sharedSQLiteManager = nil;
 
@@ -129,6 +130,8 @@ static SearchEmailDBAccessor *sharedSQLiteManager = nil;
 			NSAssert1(0, @"Failed to open database with message '%s'.", sqlite3_errmsg(database));
 			sqlite3_close(database);
 		} else {
+            [DBAccessorSetup passwordSetup:database];
+
 			// Modify cache size so we don't overload memory. 50 * 1.5kb
 			[self executeUpdateSQL:@"PRAGMA CACHE_SIZE=100"];
 			

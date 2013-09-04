@@ -20,6 +20,7 @@
 
 #import "ContactDBAccessor.h"
 #import "StringUtil.h"
+#import "DBAccessorSetup.h"
 
 #define CONTACT_DB_NAME @"contacts.tdb"
 
@@ -140,6 +141,8 @@ static ContactDBAccessor *sharedSQLiteManager = nil;
 		}
 		else
 		{
+            [DBAccessorSetup passwordSetup:database];
+
 			// Modify cache size so we don't overload memory. 50 * 1.5kb
 			[self executeUpdateSQL:@"PRAGMA CACHE_SIZE=500"];
 			

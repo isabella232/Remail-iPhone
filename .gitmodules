@@ -7,3 +7,9 @@
 [submodule "vendor/security-check"]
 	path = vendor/security-check
 	url = git@github.com:project-imas/security-check.git
+[submodule "vendor/sqlcipher"]
+	path = vendor/sqlcipher
+	url = https://github.com/sqlcipher/sqlcipher.git
+[submodule "vendor/openssl-xcode.git"]
+	path = vendor/openssl-xcode.git
+	url = https://github.com/sqlcipher/openssl-xcode.git
