@@ -1,12 +1,28 @@
 Remail-iPhone
 =============
 
-Coming soon ...
-
 reMail security bolstered with iMAS !!
 
-We are in the process of adding a password authentication screen, security check, encrypted core data to secure the database
-and ensuring the network is secure as well.
+The following is now available in reMail:
+    - Access
+      - App Password protecting access to the app
+    - Ant-tampering
+      - Debugger and jailbreak detection
+    - Data at rest:
+      - Email Database wrapped in SQLCipher
+      - Sensitive email account credentials locked down with SecureFoundation
+
+Coming Soon:
+    - App Password used to encrypt SQLCipher database
+    - Run-time:
+      - Sensitive email account information encrypted while in memory
+    - Network certificate pinning
+    - SQLCipher OpenSSl FIPS compliant version
+
+###:
+![reMail and iMAS](readme_images/remail_imas.jpg)
+###:
+![iMAS Security Adds](readme_images/imas_integration.jpg)
 
 
 ## License
