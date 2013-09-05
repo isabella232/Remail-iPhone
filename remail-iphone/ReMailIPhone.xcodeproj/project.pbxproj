@@ -229,6 +229,7 @@
 		FEE0AE9017CE49270024B3C4 /* AppPassword.framework in Resources */ = {isa = PBXBuildFile; fileRef = FEE0AE8F17CE49270024B3C4 /* AppPassword.framework */; };
 		FEE0AE9317CE4E0F0024B3C4 /* APViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FEE0AE9217CE4E0F0024B3C4 /* APViewController.m */; };
 		FEE0AE9717CE62CF0024B3C4 /* AppPassword.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE0AE8F17CE49270024B3C4 /* AppPassword.framework */; };
+		FEE1BCE717D909DB0017CCDF /* libSecurityCheck.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE49490F17D7C652004E9D5E /* libSecurityCheck.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -849,6 +850,7 @@
 				F83C98A21566E0450005B167 /* libThree20UI.a in Frameworks */,
 				F83C98A31566E0450005B167 /* libThree20UICommon.a in Frameworks */,
 				F83C98A41566E0450005B167 /* libThree20UINavigator.a in Frameworks */,
+				FEE1BCE717D909DB0017CCDF /* libSecurityCheck.a in Frameworks */,
 				F83C989E1566E02A0005B167 /* libThree20.a in Frameworks */,
 				F83C989D1566E0040005B167 /* libiconv.dylib in Frameworks */,
 				F83C989B1566DFDA0005B167 /* Foundation.framework in Frameworks */,
