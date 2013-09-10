@@ -13,3 +13,6 @@
 [submodule "vendor/openssl-xcode.git"]
 	path = vendor/openssl-xcode.git
 	url = https://github.com/sqlcipher/openssl-xcode.git
+[submodule "vendor/memory-security"]
+	path = vendor/memory-security
+	url = git@github.com:project-imas/memory-security.git
