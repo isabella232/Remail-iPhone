@@ -11,9 +11,19 @@
 
 @implementation DBAccessorSetup
 
+static NSString* pragmaSetting;
+
 +(void) passwordSetup :  (sqlite3*) database {
   //  return;
-    const char* key = [@"FOOBAR" UTF8String];
+    NSLog(@">>>>>>>>>>>>>%@", pragmaSetting);
+    const char* key = [pragmaSetting UTF8String];
     sqlite3_key(database, key, strlen(key));
 }
+
++(void) setPragmaKey : (NSString *) value {
+    pragmaSetting = [value copy];
+    lock(pragmaSetting, @"TEST");
+//    wipe(value);
+}
+
 @end
