@@ -201,6 +201,7 @@
 		20DB96D40F5CBA1C0015FE73 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 20DB96D30F5CBA1C0015FE73 /* Reachability.m */; };
 		20DB96EE0F5CBB0C0015FE73 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20DB96ED0F5CBB0C0015FE73 /* SystemConfiguration.framework */; };
 		2A43589F11C0D845009A6A60 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A43589E11C0D845009A6A60 /* Three20.bundle */; };
+		3EA4D00217DFB6B700A94A42 /* IMSMemoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA4D00117DFB6B700A94A42 /* IMSMemoryManager.m */; };
 		3EF3529B17D114FF00886D7C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF3529A17D114FF00886D7C /* libcrypto.a */; };
 		3EF3529F17D1230200886D7C /* DBAccessorSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF3529E17D1230200886D7C /* DBAccessorSetup.m */; };
 		A67025ED1243396D003519CB /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B0AC8B115484D000944873 /* libssl.a */; };
@@ -810,6 +811,8 @@
 		2A4358C011C0D8A9009A6A60 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3E76E97C17D0E63700BFE9CA /* sqlcipher.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sqlcipher.xcodeproj; path = ../vendor/sqlcipher/sqlcipher.xcodeproj; sourceTree = "<group>"; };
 		3E76E98D17D0E64900BFE9CA /* openssl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openssl.xcodeproj; path = "../vendor/openssl-xcode.git/openssl.xcodeproj"; sourceTree = "<group>"; };
+		3EA4D00017DFB6B700A94A42 /* IMSMemoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSMemoryManager.h; sourceTree = "<group>"; };
+		3EA4D00117DFB6B700A94A42 /* IMSMemoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSMemoryManager.m; sourceTree = "<group>"; };
 		3EF3529A17D114FF00886D7C /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = "../../../../Library/Developer/Xcode/DerivedData/ReMailIPhone-doctfhrngncihnbzfekyaydrqcxg/Build/Products/Debug-iphoneos/libcrypto.a"; sourceTree = "<group>"; };
 		3EF3529D17D1230200886D7C /* DBAccessorSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DBAccessorSetup.h; path = DBAccessors/DBAccessorSetup.h; sourceTree = "<group>"; };
 		3EF3529E17D1230200886D7C /* DBAccessorSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DBAccessorSetup.m; path = DBAccessors/DBAccessorSetup.m; sourceTree = "<group>"; };
@@ -1198,6 +1201,7 @@
 				3E76E97C17D0E63700BFE9CA /* sqlcipher.xcodeproj */,
 				FEE0AE8C17CE48A90024B3C4 /* Security.framework */,
 				FEE0AE7B17CE47CC0024B3C4 /* SecureFoundation.xcodeproj */,
+				3EA4CFFF17DFB6B700A94A42 /* IMSHandler */,
 				FEE0AE6C17CE47C50024B3C4 /* AppPassword.xcodeproj */,
 				F86BECBA157689050080308C /* CFNetwork.framework */,
 				F83C989C1566E0040005B167 /* libiconv.dylib */,
@@ -1359,6 +1363,16 @@
 				3E76E99217D0E64A00BFE9CA /* libcrypto.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3EA4CFFF17DFB6B700A94A42 /* IMSHandler */ = {
+			isa = PBXGroup;
+			children = (
+				3EA4D00017DFB6B700A94A42 /* IMSMemoryManager.h */,
+				3EA4D00117DFB6B700A94A42 /* IMSMemoryManager.m */,
+			);
+			name = IMSHandler;
+			path = "../vendor/memory-security/IMSHandler";
 			sourceTree = "<group>";
 		};
 		F8618DC910DAE4A100C41188 /* Products */ = {
@@ -1913,6 +1927,7 @@
 				FEE0AE9317CE4E0F0024B3C4 /* APViewController.m in Sources */,
 				FE575AF017D6733800A97359 /* SViewContrller.m in Sources */,
 				3EF3529F17D1230200886D7C /* DBAccessorSetup.m in Sources */,
+				3EA4D00217DFB6B700A94A42 /* IMSMemoryManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
