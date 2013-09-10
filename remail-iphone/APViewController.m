@@ -35,6 +35,7 @@
 bool class_vector = FALSE;
 //** obfuscated logout var
 bool obj_var = FALSE;
+NSArray *TMPa;
 
 -(id)initWithParameter: (int8_t)thaThing {
     self = [super init];
@@ -227,6 +228,14 @@ bool obj_var = FALSE;
    
     IMSCryptoManagerUpdatePasscode(phrase);
     
+    //** reset genItem 
+    if (phrase != nil) {
+        NSString *dbs = IMSCryptoManagerGenItemReset(TMPa, phrase);
+        NSLog(@"Process reset DBS: ...%@...", dbs);
+    }
+    //** write over value in memory, then erase
+    TMPa = nil;
+    
     //** call delegate return
     [self.delegate validUserAccess:self];
 }
@@ -239,6 +248,8 @@ bool obj_var = FALSE;
             withPhrase:(NSString*) phrase {
     
     //NSLog(@"here in processVerify USER Logged");
+    NSString *dbs = IMSCryptoManagerGenItemGet(phrase);
+    NSLog(@"Process verify DBS: ...%@...", dbs);
     
     //** USER logged in
     //** call delegate return
@@ -315,6 +326,10 @@ bool obj_var = FALSE;
 -(void) processCreateQuestion:questions withAnswers:answers {
     
     IMSCryptoManagerStoreTSQA(questions,answers);
+    //** generate database key, encrypt and store in iMAS ketchain, for sqlcipher use
+    NSString *dbs = IMSCryptoManagerGenItemCreate(answers, 8);
+    NSLog(@"processCreateQuestion verify DBS: ...%@...", dbs);
+    
     IMSCryptoManagerFinalize();
     
     //** 
@@ -343,6 +358,9 @@ bool obj_var = FALSE;
     else {
         //** App Password will prompt for new passcode
         //** display a dialog and then quit app
+        //** save ansewers in TMP var
+        TMPa = answers;
+        
         UIAlertView *alert = [[UIAlertView alloc]
                               initWithTitle:@"Reset success, enter new passcode" message:nil delegate:self
                               cancelButtonTitle:nil otherButtonTitles:@"OK", nil];

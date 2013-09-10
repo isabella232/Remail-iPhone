@@ -189,7 +189,7 @@
 #if TARGET_OS_IPHONE && !TARGET_IPHONE_SIMULATOR
     
     
-#if 1
+#if 0
     //--------------------------------
     // do not allow debuggers
     //--------------------------------
