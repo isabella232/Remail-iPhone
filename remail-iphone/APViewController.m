@@ -7,6 +7,7 @@
 //
 
 #import "APViewController.h"
+#import "DBAccessorSetup.h"
 
 @interface APViewController ()
 
@@ -231,7 +232,8 @@ NSArray *TMPa;
     //** reset genItem 
     if (phrase != nil) {
         NSString *dbs = IMSCryptoManagerGenItemReset(TMPa, phrase);
-        NSLog(@"Process reset DBS: ...%@...", dbs);
+        //NSLog(@"Process reset DBS: ...%@...", dbs);
+        [DBAccessorSetup setPragmaKey: dbs];
     }
     //** write over value in memory, then erase
     TMPa = nil;
@@ -249,7 +251,8 @@ NSArray *TMPa;
     
     //NSLog(@"here in processVerify USER Logged");
     NSString *dbs = IMSCryptoManagerGenItemGet(phrase);
-    NSLog(@"Process verify DBS: ...%@...", dbs);
+    //NSLog(@"Process verify DBS: ...%@...", dbs);
+    [DBAccessorSetup setPragmaKey: dbs];
     
     //** USER logged in
     //** call delegate return
@@ -328,7 +331,8 @@ NSArray *TMPa;
     IMSCryptoManagerStoreTSQA(questions,answers);
     //** generate database key, encrypt and store in iMAS ketchain, for sqlcipher use
     NSString *dbs = IMSCryptoManagerGenItemCreate(answers, 8);
-    NSLog(@"processCreateQuestion verify DBS: ...%@...", dbs);
+    //NSLog(@"processCreateQuestion verify DBS: ...%@...", dbs);
+    [DBAccessorSetup setPragmaKey: dbs];
     
     IMSCryptoManagerFinalize();
     
