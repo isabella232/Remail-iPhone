@@ -15,4 +15,6 @@
 @interface DBAccessorSetup : NSObject
 +(void) passwordSetup :  (sqlite3*) database;
 +(void) setPragmaKey : (NSString *) value;
++(void) stopCommands;
++(void) startCommands;
 @end

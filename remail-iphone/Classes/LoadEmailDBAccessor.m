@@ -119,6 +119,8 @@ static LoadEmailDBAccessor *sharedSQLiteManager = nil;
 #pragma mark Public Instance Methods
 -(sqlite3 *)database {
 	static BOOL first = YES;
+    [DBAccessorSetup startCommands];
+
 	
 	if (first || database == NULL) {
 		first = NO;
@@ -138,6 +140,8 @@ static LoadEmailDBAccessor *sharedSQLiteManager = nil;
 			[self executeUpdateSQL:@"PRAGMA encoding = \"UTF-8\""];
 		}
 	}
+    [DBAccessorSetup stopCommands];
+
 	return database;
 }
 

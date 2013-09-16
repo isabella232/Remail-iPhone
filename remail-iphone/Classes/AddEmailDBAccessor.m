@@ -121,7 +121,7 @@ static AddEmailDBAccessor *sharedSQLiteManager = nil;
 #pragma mark Public Instance Methods
 -(sqlite3 *)database {
 	static BOOL first = YES;
-	
+	[DBAccessorSetup startCommands];
 	if (first || database == NULL) {
 		first = NO;
 		if (!sqlite3_open([[self databaseFilepath] UTF8String], &database) == SQLITE_OK) {
@@ -148,6 +148,8 @@ static AddEmailDBAccessor *sharedSQLiteManager = nil;
 			[self executeUpdateSQL:@"PRAGMA synchronous=NORMAL"];
 		}
 	}
+    
+	[DBAccessorSetup stopCommands];
 	return database;
 }
 
