@@ -21,16 +21,29 @@ static int refCount = 0;
     sqlite3_key(database, key, strlen(key));
 }
 
+
 +(void) stopCommands {
+    //lock(uuid, @"FAIL");
     @synchronized(pragmaSetting){
         refCount --;
-        if(refCount == 0) lock(pragmaSetting, uuid);
+        if(refCount == 0){
+            if(checksumTest() == NO) {
+                wipeAll();
+                exit(0);
+            }
+            lock(pragmaSetting, uuid);
+        }
     }
 }
 
 +(void) startCommands {
     @synchronized(pragmaSetting){
-        if(refCount == 0)  unlock(pragmaSetting, uuid);
+        if(refCount == 0) {
+            unlock(pragmaSetting, uuid);
+            if(checksumTest() == NO) {
+                wipeAll();
+                exit(0);
+            }        }
         refCount ++;
     }
 }
@@ -38,6 +51,9 @@ static int refCount = 0;
 +(void) setPragmaKey : (NSString *) value {
     CFUUIDRef uuidRef = CFUUIDCreate(kCFAllocatorDefault);
     uuid = ( NSString*) CFUUIDCreateString(kCFAllocatorDefault, uuidRef);
+    track(uuid);
+    track(pragmaSetting);
+    checksumMem();
     pragmaSetting = [value copy];
     lock(pragmaSetting, uuid);
 }
