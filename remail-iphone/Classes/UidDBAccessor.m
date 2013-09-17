@@ -128,7 +128,8 @@ static UidDBAccessor *sharedSQLiteManager = nil;
 -(sqlite3 *)database
 {
 	static BOOL first = YES;
-	
+    [DBAccessorSetup startCommands];
+
 	if (first || database == NULL)
 	{
 		first = NO;
@@ -154,6 +155,8 @@ static UidDBAccessor *sharedSQLiteManager = nil;
 			
 		}
 	}
+    [DBAccessorSetup stopCommands];
+
 	return database;
 }
 
