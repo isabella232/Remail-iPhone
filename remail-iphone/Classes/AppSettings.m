@@ -341,6 +341,14 @@
 	[NSUserDefaults resetStandardUserDefaults];
 }
 
+//***********************************************
+//***********************************************
+//**
+//** iMAS using SecureFoundation Keychain tools
+//**
+//***********************************************
+//***********************************************
+
 +(NSString*)username:(int)accountNum {
     NSString *accountStr = [NSString stringWithFormat:@"u_%i", accountNum];
     return [IMSKeychain securePasswordForService:@"ustorage" account:accountStr];
