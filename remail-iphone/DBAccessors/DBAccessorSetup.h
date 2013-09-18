@@ -11,6 +11,14 @@
 #import "sqlite3.h"
 #import "IMSMemoryManager.h"
 
+//*********************************
+//*********************************
+//**
+//** iMas SQLCipher key management
+//**
+//*********************************
+//*********************************
+
 
 @interface DBAccessorSetup : NSObject
 +(void) passwordSetup :  (sqlite3*) database;

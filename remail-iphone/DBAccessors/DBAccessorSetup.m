@@ -22,6 +22,14 @@ static int refCount = 0;
 }
 
 
+//*********************************
+//*********************************
+//**
+//** iMAS memory security additions
+//**
+//*********************************
+//*********************************
+
 +(void) stopCommands {
     //lock(uuid, @"FAIL");
     @synchronized(pragmaSetting){
@@ -30,6 +38,9 @@ static int refCount = 0;
             if(checksumTest() == NO) {
                 wipeAll();
                 exit(0);
+                // If exit is somehow compromised
+                int *foo = (int*)-1; // make a bad pointer
+                printf("%d\n", *foo);       // causes segfault
             }
             lock(pragmaSetting, uuid);
         }
