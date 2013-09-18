@@ -2131,6 +2131,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ReMailIPhone_Prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2149,6 +2150,7 @@
 				OTHER_CFLAGS = (
 					"-DSQLITE_HAS_CODEC",
 					"-DSQLITE_ENABLE_FTS3",
+					"-finline-limit=5000",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = reMail;
@@ -2184,6 +2186,7 @@
 				OTHER_CFLAGS = (
 					"-DSQLITE_HAS_CODEC",
 					"-DSQLITE_ENABLE_FTS3",
+					"-finline-limit=5000",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = reMail;
@@ -2199,6 +2202,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ReMailIPhone_Prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2217,6 +2221,7 @@
 				OTHER_CFLAGS = (
 					"-DSQLITE_HAS_CODEC",
 					"-DSQLITE_ENABLE_FTS3",
+					"-finline-limit=5000",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = reMail;
