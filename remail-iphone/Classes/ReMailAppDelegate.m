@@ -42,6 +42,11 @@
 #import <SecurityCheck/SecurityCheck.h>
 
 
+void problemDetected()  {
+    int *foo = (int*)-1; // make a bad pointer
+    printf("%d\n", *foo);       // causes segfault
+}
+
 @interface ReMailAppDelegate()
 
     //-----------------------------------
@@ -202,7 +207,7 @@
         
         __weak id weakSelf = self;
         
-        if (weakSelf) [weakSelf weHaveAProblem];
+        if (weakSelf) problemDetected();// [weakSelf weHaveAProblem];
     };
     
     dbgCheck(dbChkCallback);
@@ -217,7 +222,7 @@
 
         __weak id weakSelf = self;
         
-        if (weakSelf) [weakSelf weHaveAProblem];
+        if (weakSelf) problemDetected; //[weakSelf weHaveAProblem];
     };
 
     //-----------------------------------

@@ -22,6 +22,8 @@
 #import <Foundation/Foundation.h>
 #import "HomeViewController.h"
 
+inline void problemDetected() __attribute__((always_inline));
+
 @class ReMailViewController;
 
 @interface ReMailAppDelegate : NSObject <UIApplicationDelegate> {
