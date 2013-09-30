@@ -2140,6 +2140,7 @@
 					"../mailcore/libetpan/build-mac/include/**",
 					"\"$(BUILT_PRODUCTS_DIR)/../../three20\"/**",
 					sqlcipher,
+					"$(OPENSSL_SRC)/include",
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -2176,6 +2177,7 @@
 					"../mailcore/libetpan/build-mac/include/**",
 					"\"$(BUILT_PRODUCTS_DIR)/../../three20\"/**",
 					sqlcipher,
+					"$(OPENSSL_SRC)/include",
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -2211,6 +2213,7 @@
 					"../mailcore/libetpan/build-mac/include/**",
 					"\"$(BUILT_PRODUCTS_DIR)/../../three20\"/**",
 					sqlcipher,
+					"$(OPENSSL_SRC)/include",
 				);
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;

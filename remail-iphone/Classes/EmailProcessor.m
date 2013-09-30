@@ -18,7 +18,7 @@
 //  limitations under the License.
 //
 
-#import <CommonCrypto/CommonDigest.h>
+//#import <CommonCrypto/CommonDigest.h>
 #import "EmailProcessor.h"
 #import "SyncManager.h"
 #import "SearchRunner.h"

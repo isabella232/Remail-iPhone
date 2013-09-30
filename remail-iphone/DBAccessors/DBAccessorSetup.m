@@ -11,14 +11,16 @@
 
 @implementation DBAccessorSetup
 
-static NSString* pragmaSetting;
-static NSString* uuid;
+static u_int8_t *pragmaSetting = nil;
+static NSData *pragmaMutex = nil;
+static int ps_len = 0;
+static NSString* uuid = nil;
 
 static int refCount = 0;
 
 +(void) passwordSetup :  (sqlite3*) database {
-    const char* key = [pragmaSetting UTF8String];
-    sqlite3_key(database, key, strlen(key));
+    //const char* key = (char *)pragmaSetting;
+    sqlite3_key(database, pragmaSetting, ps_len); //strlen(key));
 }
 
 
@@ -32,9 +34,10 @@ static int refCount = 0;
 
 +(void) stopCommands {
     //lock(uuid, @"FAIL");
-    @synchronized(pragmaSetting){
+    @synchronized(pragmaMutex){
         refCount --;
         if(refCount == 0){
+#if 0
             if(checksumTest() == NO) {
                 wipeAll();
                 exit(0);
@@ -42,31 +45,49 @@ static int refCount = 0;
                 int *foo = (int*)-1; // make a bad pointer
                 printf("%d\n", *foo);       // causes segfault
             }
-            lock(pragmaSetting, uuid);
+#endif
+            lockC(pragmaSetting, ps_len, uuid);
         }
     }
 }
 
+
 +(void) startCommands {
-    @synchronized(pragmaSetting){
+    @synchronized(pragmaMutex){
         if(refCount == 0) {
-            unlock(pragmaSetting, uuid);
+            unlockC(pragmaSetting, ps_len, uuid);
+#if 0
             if(checksumTest() == NO) {
                 wipeAll();
                 exit(0);
-            }        }
+            }
+#endif
+        }
         refCount ++;
+
     }
+
 }
 
 +(void) setPragmaKey : (NSString *) value {
+#if 0
+    pragmaSetting = [[[NSString alloc] retain] initWithFormat:value];
+#else
     CFUUIDRef uuidRef = CFUUIDCreate(kCFAllocatorDefault);
-    uuid = ( NSString*) CFUUIDCreateString(kCFAllocatorDefault, uuidRef);
+    NSString *tmp = ( NSString*) CFUUIDCreateString(kCFAllocatorDefault, uuidRef);
+    //** need to ensure this key is 32 bytes
+    uuid = [tmp substringToIndex:32];
     track(uuid);
-    track(pragmaSetting);
     checksumMem();
-    pragmaSetting = [value copy];
-    lock(pragmaSetting, uuid);
+    //** this is the Database key
+    pragmaMutex = [[NSData alloc] init];
+    ps_len = [value length];
+    pragmaSetting = malloc(ps_len);
+    memcpy(pragmaSetting, [[value dataUsingEncoding:NSUTF8StringEncoding] bytes], [value length]);
+    //track(pragmaSetting);
+    lockC(pragmaSetting, ps_len, uuid);
+    NSLog(@"0x%08X", pragmaSetting);
+#endif
 }
 
 @end

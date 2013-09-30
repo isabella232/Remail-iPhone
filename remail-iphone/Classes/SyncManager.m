@@ -17,7 +17,7 @@
 //  limitations under the License.
 //
 
-#import <CommonCrypto/CommonDigest.h>
+//#import <CommonCrypto/CommonDigest.h>
 #import "SyncManager.h"
 #import "ActivityIndicator.h"
 #import "BuchheitTimer.h"

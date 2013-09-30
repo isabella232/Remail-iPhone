@@ -18,9 +18,12 @@
 //  limitations under the License.
 //
 
-#import <CommonCrypto/CommonDigest.h>
+//#import <CommonCrypto/CommonDigest.h>
 #import "StringUtil.h"
 #import "Three20Core/NSStringAdditions.h"
+
+//** iMAS securefoundation
+#import <SecureFoundation/IMSCryptoUtils.h>
 
 @implementation StringUtil
 
@@ -298,14 +301,23 @@
 }
 
 NSString* md5( NSString *str ) {
-	const char *cStr = [str UTF8String];
-	unsigned char result[CC_MD5_DIGEST_LENGTH];
-	CC_MD5( cStr, strlen(cStr), result );
-	return [NSString stringWithFormat:
-			@"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
-			result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7],
-			result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]
-			];
+
+#if 0
+  //** apple crypto
+  const char *cStr = [str UTF8String];
+  unsigned char result[CC_MD5_DIGEST_LENGTH];
+  CC_MD5( cStr, strlen(cStr), result );
+#else
+  //** iMAS securefoundation
+  NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
+  unsigned char *result  = IMSHashBytes_MD5([data bytes], [data length]);
+#endif
+
+  return [NSString stringWithFormat:
+                     @"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
+                   result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7],
+                   result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]
+          ];
 } 
 
 @end
