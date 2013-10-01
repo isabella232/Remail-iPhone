@@ -3,6 +3,13 @@ Remail-iPhone
 
 reMail security bolstered with iMAS !!
 
+Google open source project [reMail](http://code.google.com/p/remail-iphone).  We reviewed their 
+[todo list](http://code.google.com/p/remail-iphone/wiki/ProjectIdeaDetails) and decided to add iMAS security and
+make reMail an iMAS reference application
+
+Checout the list of security features we added below:
+
+
 ```
 The following is now available in reMail:
     - Access
@@ -12,13 +19,16 @@ The following is now available in reMail:
     - Data at rest:
       - Email Database wrapped in SQLCipher
       - Sensitive email account credentials locked down with SecureFoundation
-
-Coming Soon:
     - App Password used to encrypt SQLCipher database
     - Run-time:
       - Sensitive email account information encrypted while in memory
-    - Network certificate pinning
-    - SQLCipher OpenSSl FIPS compliant version
+    - opensource OpenSSL crypto
+    - runs in simulator and on devices
+    
+Coming soon:
+    - FIPS compliant version (in separate github repo) Oct 2013
+    - Network certificate pinning (Nov 2013)
+    - iOS v7 compatible (Dec 2013)
 ```
 
 ###
