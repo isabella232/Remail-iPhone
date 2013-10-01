@@ -5,9 +5,9 @@ reMail security bolstered with iMAS !!
 
 Google open source project [reMail](http://code.google.com/p/remail-iphone).  We reviewed their 
 [todo list](http://code.google.com/p/remail-iphone/wiki/ProjectIdeaDetails) and decided to add iMAS security and
-make reMail an iMAS reference application
+make reMail an iMAS reference application.
 
-Checout the list of security features we added below:
+Checkout the list of security features we added below:
 
 
 ```
