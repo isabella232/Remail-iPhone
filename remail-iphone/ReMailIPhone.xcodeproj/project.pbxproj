@@ -202,9 +202,7 @@
 		20DB96EE0F5CBB0C0015FE73 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20DB96ED0F5CBB0C0015FE73 /* SystemConfiguration.framework */; };
 		2A43589F11C0D845009A6A60 /* Three20.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2A43589E11C0D845009A6A60 /* Three20.bundle */; };
 		3EA4D00217DFB6B700A94A42 /* IMSMemoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EA4D00117DFB6B700A94A42 /* IMSMemoryManager.m */; };
-		3EF3529B17D114FF00886D7C /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF3529A17D114FF00886D7C /* libcrypto.a */; };
 		3EF3529F17D1230200886D7C /* DBAccessorSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF3529E17D1230200886D7C /* DBAccessorSetup.m */; };
-		A67025ED1243396D003519CB /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B0AC8B115484D000944873 /* libssl.a */; };
 		A67025EE1243396D003519CB /* libsasl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14019BA010DC26A40000859B /* libsasl2.a */; };
 		F83C988F1566DFB40005B167 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83C988E1566DFB40005B167 /* QuartzCore.framework */; };
 		F83C98911566DFBA0005B167 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F83C98901566DFBA0005B167 /* StoreKit.framework */; };
@@ -223,6 +221,8 @@
 		F83C98A41566E0450005B167 /* libThree20UINavigator.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A43586911C0D495009A6A60 /* libThree20UINavigator.a */; };
 		F8618DDD10DAE4C600C41188 /* libmailcore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F8618DDA10DAE4A100C41188 /* libmailcore.a */; };
 		F86BECBB157689050080308C /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86BECBA157689050080308C /* CFNetwork.framework */; };
+		FE1A52321815CAF4008645D3 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E76E99217D0E64A00BFE9CA /* libcrypto.a */; };
+		FE1A52381815D016008645D3 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1A52371815D016008645D3 /* libssl.a */; };
 		FE49491317D7C941004E9D5E /* libsqlcipher.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE49491217D7C941004E9D5E /* libsqlcipher.a */; };
 		FE575AF017D6733800A97359 /* SViewContrller.m in Sources */ = {isa = PBXBuildFile; fileRef = FE575AEE17D6733800A97359 /* SViewContrller.m */; };
 		FEE0AE8917CE48580024B3C4 /* libSecureFoundation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FEE0AE8117CE47CD0024B3C4 /* libSecureFoundation.a */; };
@@ -416,6 +416,13 @@
 			remoteGlobalIDString = F8618B5610DADB5C00C41188;
 			remoteInfo = "MailCore iPhone";
 		};
+		FE1A52351815CC75008645D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3E76E97C17D0E63700BFE9CA /* sqlcipher.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC045055464E500DB518D;
+			remoteInfo = sqlcipher;
+		};
 		FE49490E17D7C652004E9D5E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FE98DBF117D0EE2C00D04A26 /* SecurityCheck.xcodeproj */;
@@ -428,13 +435,6 @@
 			containerPortal = 3E76E97C17D0E63700BFE9CA /* sqlcipher.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D2AAC046055464E500DB518D;
-			remoteInfo = sqlcipher;
-		};
-		FE49491417D7C996004E9D5E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3E76E97C17D0E63700BFE9CA /* sqlcipher.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D2AAC045055464E500DB518D;
 			remoteInfo = sqlcipher;
 		};
 		FE49491617D7C99E004E9D5E /* PBXContainerItemProxy */ = {
@@ -827,6 +827,7 @@
 		F83C989C1566E0040005B167 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		F8618DC810DAE4A100C41188 /* MailCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MailCore.xcodeproj; path = ../mailcore/MailCore.xcodeproj; sourceTree = SOURCE_ROOT; };
 		F86BECBA157689050080308C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		FE1A52371815D016008645D3 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libssl.a; path = "../../../../mobilesec/msbuild/Release-iphoneos/libssl.a"; sourceTree = "<group>"; };
 		FE575AEE17D6733800A97359 /* SViewContrller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SViewContrller.m; path = Classes/SViewContrller.m; sourceTree = "<group>"; };
 		FE575AEF17D6733800A97359 /* SViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SViewController.h; path = Classes/SViewController.h; sourceTree = "<group>"; };
 		FE98DBF117D0EE2C00D04A26 /* SecurityCheck.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SecurityCheck.xcodeproj; path = "../vendor/security-check/SecurityCheck.xcodeproj"; sourceTree = "<group>"; };
@@ -843,8 +844,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE1A52381815D016008645D3 /* libssl.a in Frameworks */,
+				FE1A52321815CAF4008645D3 /* libcrypto.a in Frameworks */,
 				FE49491317D7C941004E9D5E /* libsqlcipher.a in Frameworks */,
-				3EF3529B17D114FF00886D7C /* libcrypto.a in Frameworks */,
 				FEE0AE8D17CE48A90024B3C4 /* Security.framework in Frameworks */,
 				F86BECBB157689050080308C /* CFNetwork.framework in Frameworks */,
 				F83C989F1566E0450005B167 /* libThree20Core.a in Frameworks */,
@@ -865,7 +867,6 @@
 				F83C98911566DFBA0005B167 /* StoreKit.framework in Frameworks */,
 				F83C988F1566DFB40005B167 /* QuartzCore.framework in Frameworks */,
 				FEE0AE9717CE62CF0024B3C4 /* AppPassword.framework in Frameworks */,
-				A67025ED1243396D003519CB /* libssl.a in Frameworks */,
 				A67025EE1243396D003519CB /* libsasl2.a in Frameworks */,
 				F8618DDD10DAE4C600C41188 /* libmailcore.a in Frameworks */,
 				20DB96EE0F5CBB0C0015FE73 /* SystemConfiguration.framework in Frameworks */,
@@ -1195,6 +1196,7 @@
 		29B97314FDCFA39411CA2CEA /* NextMailIPhone */ = {
 			isa = PBXGroup;
 			children = (
+				FE1A52371815D016008645D3 /* libssl.a */,
 				FE98DBF117D0EE2C00D04A26 /* SecurityCheck.xcodeproj */,
 				3EF3529A17D114FF00886D7C /* libcrypto.a */,
 				3E76E98D17D0E64900BFE9CA /* openssl.xcodeproj */,
@@ -1436,7 +1438,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				FE49491517D7C996004E9D5E /* PBXTargetDependency */,
+				FE1A52361815CC75008645D3 /* PBXTargetDependency */,
 				FE49491717D7C99E004E9D5E /* PBXTargetDependency */,
 				FE98DC0217D0EEA400D04A26 /* PBXTargetDependency */,
 				FEE0AE8B17CE48760024B3C4 /* PBXTargetDependency */,
@@ -1974,10 +1976,10 @@
 			name = "MailCore iPhone";
 			targetProxy = F8618DDB10DAE4B800C41188 /* PBXContainerItemProxy */;
 		};
-		FE49491517D7C996004E9D5E /* PBXTargetDependency */ = {
+		FE1A52361815CC75008645D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = sqlcipher;
-			targetProxy = FE49491417D7C996004E9D5E /* PBXContainerItemProxy */;
+			targetProxy = FE1A52351815CC75008645D3 /* PBXContainerItemProxy */;
 		};
 		FE49491717D7C99E004E9D5E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
