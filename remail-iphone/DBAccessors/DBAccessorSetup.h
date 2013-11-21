@@ -19,6 +19,7 @@
 //*********************************
 //*********************************
 
+inline void problemDetected() __attribute__((always_inline));
 
 @interface DBAccessorSetup : NSObject
 +(void) passwordSetup :  (sqlite3*) database;

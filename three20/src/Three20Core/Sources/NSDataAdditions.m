@@ -17,7 +17,7 @@
 #import "Three20Core/NSDataAdditions.h"
 
 //#import <CommonCrypto/CommonDigest.h>
-#import <SecureFoundation/SecureFoundation.h>
+//#import <SecureFoundation/SecureFoundation.h>
 
 // Core
 #import "Three20Core/TTCorePreprocessorMacros.h"

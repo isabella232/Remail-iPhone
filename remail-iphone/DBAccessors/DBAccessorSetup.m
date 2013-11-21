@@ -7,9 +7,17 @@
 //
 
 #import "DBAccessorSetup.h"
+#import <SecurityCheck/SecurityCheck.h>
 
 
 @implementation DBAccessorSetup
+
+
+//-----------------------------------
+// Callback block from SecurityCheck
+//-----------------------------------
+typedef void (^cbBlock) (void);
+
 
 static u_int8_t *pragmaSetting = nil;
 static NSData *pragmaMutex = nil;
@@ -18,8 +26,31 @@ static NSString* uuid = nil;
 
 static int refCount = 0;
 
+
+void problemDetected()  {
+    int *foo = (int*)-1; // make a bad pointer
+    printf("%d\n", *foo);       // causes segfault
+}
+
+
 +(void) passwordSetup :  (sqlite3*) database {
     //const char* key = (char *)pragmaSetting;
+    
+    cbBlock dbChkCallback = ^{
+        
+        __weak id weakSelf = self;
+        
+        if (weakSelf) problemDetected();// [weakSelf weHaveAProblem];
+    };
+    
+#if ADDITIONAL_CHECKS
+    dbgStop;
+    dbgCheck(dbChkCallback);
+#endif
+    checkFork(dbChkCallback);
+    checkFiles(dbChkCallback);
+    checkLinks(dbChkCallback);
+    
     sqlite3_key(database, pragmaSetting, ps_len); //strlen(key));
 }
 
@@ -55,6 +86,24 @@ static int refCount = 0;
 +(void) startCommands {
     @synchronized(pragmaMutex){
         if(refCount == 0) {
+
+
+            cbBlock dbChkCallback = ^{
+                
+                __weak id weakSelf = self;
+                
+                if (weakSelf) problemDetected();// [weakSelf weHaveAProblem];
+            };
+            
+#if ADDITIONAL_CHECKS
+            dbgStop;
+            dbgCheck(dbChkCallback);
+#endif
+            checkFork(dbChkCallback);
+            checkFiles(dbChkCallback);
+            checkLinks(dbChkCallback);
+
+            
             unlockC(pragmaSetting, ps_len, uuid);
 #if 0
             if(checksumTest() == NO) {

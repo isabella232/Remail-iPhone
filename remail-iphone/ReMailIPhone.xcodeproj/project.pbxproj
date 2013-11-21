@@ -827,7 +827,7 @@
 		F83C989C1566E0040005B167 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		F8618DC810DAE4A100C41188 /* MailCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MailCore.xcodeproj; path = ../mailcore/MailCore.xcodeproj; sourceTree = SOURCE_ROOT; };
 		F86BECBA157689050080308C /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
-		FE1A52371815D016008645D3 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libssl.a; path = "../../../../mobilesec/msbuild/Release-iphoneos/libssl.a"; sourceTree = "<group>"; };
+		FE1A52371815D016008645D3 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = "../../../../mobilesec/msbuild/Release-iphoneos/libssl.a"; sourceTree = "<group>"; };
 		FE575AEE17D6733800A97359 /* SViewContrller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SViewContrller.m; path = Classes/SViewContrller.m; sourceTree = "<group>"; };
 		FE575AEF17D6733800A97359 /* SViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SViewController.h; path = Classes/SViewController.h; sourceTree = "<group>"; };
 		FE98DBF117D0EE2C00D04A26 /* SecurityCheck.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SecurityCheck.xcodeproj; path = "../vendor/security-check/SecurityCheck.xcodeproj"; sourceTree = "<group>"; };
@@ -2117,6 +2117,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-objC";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
@@ -2133,7 +2134,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_OPTIMIZATION_LEVEL = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ReMailIPhone_Prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2170,7 +2171,7 @@
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_OPTIMIZATION_LEVEL = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ReMailIPhone_Prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2206,7 +2207,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_OPTIMIZATION_LEVEL = 1;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ReMailIPhone_Prefix.pch;
 				HEADER_SEARCH_PATHS = (
@@ -2247,6 +2248,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-objC";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;
@@ -2266,6 +2268,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				"OTHER_CFLAGS[arch=*]" = "";
 				OTHER_LDFLAGS = "-objC";
 				PREBINDING = NO;
 				SDKROOT = iphoneos;

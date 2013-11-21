@@ -852,6 +852,7 @@
 					"$(LIBRARY_SEARCH_PATHS_QUOTED_2)",
 				);
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_CFLAGS[arch=*]" = "-DENHANCED_CHECKS";
 				OTHER_LDFLAGS = (
 					"-seg1addr",
 					0xb0000000,

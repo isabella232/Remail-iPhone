@@ -194,7 +194,7 @@ void problemDetected()  {
 #if TARGET_OS_IPHONE && !TARGET_IPHONE_SIMULATOR
     
     
-#if 0
+#if ADDITIONAL_CHECKS
     //--------------------------------
     // do not allow debuggers
     //--------------------------------
@@ -222,7 +222,7 @@ void problemDetected()  {
 
         __weak id weakSelf = self;
         
-        if (weakSelf) problemDetected; //[weakSelf weHaveAProblem];
+        if (weakSelf) problemDetected;
     };
 
     //-----------------------------------
@@ -304,6 +304,21 @@ void problemDetected()  {
 	// set path for log output to send home
 	[self setImapErrorLogPath];
 	
+    cbBlock dbChkCallback = ^{
+        
+        __weak id weakSelf = self;
+        
+        if (weakSelf) problemDetected();// [weakSelf weHaveAProblem];
+    };
+    
+#if ADDITIONAL_CHECKS
+    dbgStop;
+    dbgCheck(dbChkCallback);
+#endif
+    checkFork(dbChkCallback);
+    checkFiles(dbChkCallback);
+    checkLinks(dbChkCallback);
+    
 	// handle reset and clearing attachments
 	// (the user can reset all data in iPhone > Settings)
 	if([AppSettings reset]) {
@@ -379,7 +394,21 @@ void problemDetected()  {
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	// If a sync was ongoing, restart it
 	NSLog(@"applicationDidBecomeActive");
-
+    
+    cbBlock dbChkCallback = ^{
+        
+        __weak id weakSelf = self;
+        
+        if (weakSelf) problemDetected();// [weakSelf weHaveAProblem];
+    };
+    
+#if ADDITIONAL_CHECKS
+    dbgStop;
+    dbgCheck(dbChkCallback);
+#endif
+    checkFork(dbChkCallback);
+    checkFiles(dbChkCallback);
+    checkLinks(dbChkCallback);
     [self performLaunchSteps];
 }
 
